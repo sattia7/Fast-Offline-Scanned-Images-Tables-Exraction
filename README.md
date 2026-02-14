@@ -270,7 +270,47 @@ Scoring Factors:
 - Internal gridline count  
 - Edge density  
 - Whitespace balance  
-- Text density estimate  
+- Text density estimate
 
-Score Formula (conceptual):
+---
 
+## 👁 Vision-Language Inference Phase
+
+This phase converts spatially localized table-region imagery into structured symbolic representations using a Local Vision-Language Model (VLM).  
+Each region is processed in complete isolation, yet retains lineage binding to the parent document.
+
+---
+
+### 5.1 Visual Embedding Generation Layer
+
+Purpose: Transform pixel space into semantic embedding space.
+
+Operations:
+
+- Patch extraction and tokenization  
+- Positional encoding injection  
+- Spatial layout embedding  
+- Vision backbone forward propagation  
+- Feature pyramid aggregation  
+
+Output:
+
+- Dense visual embedding tensor
+
+---
+
+### 5.2 Prompt Assembly Layer
+
+Purpose: Construct a context-rich instruction bundle.
+
+Prompt Stack:
+
+<System Prompt> <Region Metadata Prompt> <Table Extraction Instruction Prompt> <Layout Awareness Prompt> <OCR Correction Prompt> <Validation Hint Prompt> ```
+
+Dynamic Variables:
+
+- Region coordinates
+
+- Estimated rows/columns
+
+- Previous failure reasons (if retry)
