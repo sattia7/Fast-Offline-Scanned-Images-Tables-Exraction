@@ -1,0 +1,1 @@
+def accuracy(): return 0
