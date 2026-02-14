@@ -54,22 +54,6 @@ A fully instrumented execution substrate.
 4. Create lineage object.
 5. Instantiate pipeline state.
 
-### Pipeline State Schema
-
-```json
-{
-  "image_blob": null,
-  "lineage_id": "uuid",
-  "stage_pointer": "preprocess",
-  "retry_counter": 0,
-  "entropy_score": 0.0,
-  "confidence_vector": [],
-  "table_object": null,
-  "validation_flags": {}
-}
-
-```
-
 
 ## 🧹 Image Pre-Normalization Cascade
 
