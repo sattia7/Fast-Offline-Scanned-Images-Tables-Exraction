@@ -68,6 +68,7 @@ A fully instrumented execution substrate.
   "validation_flags": {}
 }
 
+```
 
 
 ## 🧹 Image Pre-Normalization Cascade
