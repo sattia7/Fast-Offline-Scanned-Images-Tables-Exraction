@@ -28,6 +28,18 @@ The system operates as a **poly-agent cognitive mesh** where specialized agents 
 
 Each agent acts as an autonomous cognitive unit with bounded responsibility and shared state synchronization.
 
+
+---
+
+## 📥 Input Materialization Phase
+
+1. Raw images placed in `data/raw_images/`.
+2. Generate UUID.
+3. Compute SHA-256 hash.
+4. Create lineage object.
+5. Instantiate pipeline state.
+
+   
 ---
 
 ## 🔥 Global Bootstrap Phase
@@ -46,14 +58,7 @@ A fully instrumented execution substrate.
 
 ---
 
-## 📥 Input Materialization Phase
-
-1. Raw images placed in `data/raw_images/`.
-2. Generate UUID.
-3. Compute SHA-256 hash.
-4. Create lineage object.
-5. Instantiate pipeline state.
-
+---
 
 ## 🧹 Image Pre-Normalization Cascade
 
