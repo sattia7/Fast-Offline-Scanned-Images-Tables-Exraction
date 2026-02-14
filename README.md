@@ -177,14 +177,100 @@ Output:
 
 ---
 
-### 3.7 Pre-Normalization Output Contract
+## 📐 Table Region Hypothesis Generation
 
-```json
-{
-  "image_tensor": "<normalized_tensor>",
-  "height": 2048,
-  "width": 2048,
-  "channels": 1,
-  "quality_score": 0.97
-}
+This stage discovers spatially localized regions that are statistically and structurally likely to contain tabular data.  
+All computations operate on the **pre-normalized canonical image tensor**.
+
+---
+
+### 4.1 Edge Energy Projection
+
+Purpose: Detect horizontal and vertical line density concentrations.
+
+Operations:
+
+- Compute Sobel-X and Sobel-Y gradients  
+- Accumulate gradient magnitudes  
+- Generate horizontal projection profile  
+- Generate vertical projection profile  
+- Smooth projections using Gaussian kernel  
+- Detect peaks using local maxima search  
+
+Output:
+
+- Horizontal energy vector  
+- Vertical energy vector  
+
+---
+
+### 4.2 Line Structure Extraction
+
+Purpose: Identify dominant straight-line primitives.
+
+Operations:
+
+- Canny edge detection  
+- Probabilistic Hough Transform  
+- Line orientation clustering  
+- Line length thresholding  
+- Parallel line grouping  
+
+Output:
+
+- Horizontal line set  
+- Vertical line set  
+
+---
+
+### 4.3 Contour Graph Construction
+
+Purpose: Build connected components representing enclosed regions.
+
+Operations:
+
+- Binary mask thresholding  
+- Connected component labeling  
+- Contour extraction  
+- Polygon approximation  
+- Hierarchy construction  
+
+Output:
+
+- Contour graph with parent-child relationships  
+
+---
+
+### 4.4 Candidate Bounding Box Synthesis
+
+Purpose: Convert structural primitives into bounding boxes.
+
+Operations:
+
+- Merge intersecting horizontal and vertical lines  
+- Compute rectangular hulls  
+- Expand hull margins  
+- Normalize coordinates  
+- Clip to image bounds  
+
+Output:
+
+- Candidate bounding boxes  
+
+---
+
+### 4.5 Candidate Scoring Engine
+
+Each candidate region is scored using multi-factor heuristics.
+
+Scoring Factors:
+
+- Rectangularity ratio  
+- Aspect ratio plausibility  
+- Internal gridline count  
+- Edge density  
+- Whitespace balance  
+- Text density estimate  
+
+Score Formula (conceptual):
 
