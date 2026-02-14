@@ -1,0 +1,13 @@
+langgraph
+langsmith
+opencv-python
+pillow
+numpy
+pandas
+pytesseract
+torch
+transformers
+pydantic
+python-dotenv
+rich
+tqdm
