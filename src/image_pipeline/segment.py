@@ -1,0 +1,1 @@
+def detect_tables(img): return img

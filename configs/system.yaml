@@ -1,0 +1,6 @@
+vlm:
+  model_path: models/local_vlm
+langsmith:
+  enabled: true
+thresholds:
+  confidence: 0.85

@@ -1,0 +1,1 @@
+def validate_schema(table): return True
